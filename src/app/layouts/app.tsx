@@ -27,12 +27,14 @@ const menus: MenuProps[] = [
 
 export const AppLayout = ({ children }: any) => {
     return (
-        <div className="bg-black h-screen px-10 md:px-12 lg:px-16">
-            <header className="pt-8">
+        <div className="bg-black h-screen">
+            <div className="max-w-7xl mx-auto">
+            <header className="pt-8 px-4">
                 <div className="container mx-auto">
-                    <div className="flex flex-col lg:flex-row items-center lg:justify-between">
+                    <div className="flex flex-row items-center justify-between">
                         <Link className="text-[#e0eca8] text-3xl" href="#">Enviro</Link>
-                        <ul className="flex">
+                        <div className="flex lg:hidden text-white">Drawer</div>
+                        <ul className="hidden lg:flex">
                             {
                                 menus.map((item: any, index) => {
                                     return (
@@ -48,5 +50,6 @@ export const AppLayout = ({ children }: any) => {
             </header>
             {children}
         </div>
+            </div>
     )
 }

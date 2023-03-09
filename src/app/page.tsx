@@ -1,13 +1,17 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import { AppLayout } from './layouts/app'
+import { Button } from './components/button'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1 className='text-blue-800'>hello world</h1>
-    </main>
+    <AppLayout>
+      <main>
+        main
+      </main>
+    </AppLayout>
   )
 }

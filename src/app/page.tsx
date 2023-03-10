@@ -39,7 +39,7 @@ export default function Home() {
               </div>
             </div>
             <div className='text-white'>
-              <div className='w-full mt-10 h-[35vh] flex justify-center items-center'>
+              <div className='w-full mt-10 h-[40vh] lg:h-[35vh] flex justify-center items-center'>
                 <div className='flex border-gray-500 rounded-t-[200px] border-t border-l border-r  flex-col justify-end h-full items-center lg:w-64'>
                   <div className='flex flex-row'>
                     <div className='border-[#e0eca8] border-b border-r px-6 py-8 w-32'>

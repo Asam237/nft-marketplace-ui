@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link"
-import React from "react"
+import React, { useState } from "react"
 import MenuImg from "../../../public/square.png";
 import { Atma } from "next/font/google"
 
@@ -31,6 +32,7 @@ const menus: MenuProps[] = [
 const atma = Atma({ subsets: ['latin'], weight: "400" })
 
 export const AppLayout = ({ children }: any) => {
+    const [navbar, setNavbar] = useState(false);
     return (
         <div className="h-screen">
             <div className="max-w-7xl mx-auto">
@@ -38,7 +40,11 @@ export const AppLayout = ({ children }: any) => {
                     <div className="container mx-auto">
                         <div className="flex flex-row items-center justify-between">
                             <Link className={`text-[#e0eca8] text-3xl ${atma.className}`} href="#">Enviro</Link>
-                            <div className="flex lg:hidden text-white">
+                            <div className="flex lg:hidden text-white nav__menu-bar"
+                                onClick={() => {
+                                    setNavbar(!navbar)
+                                }}
+                            >
                                 <Image src={MenuImg} alt="image" className="w-8 h-8" />
                             </div>
                             <ul className="hidden lg:flex">
@@ -53,6 +59,22 @@ export const AppLayout = ({ children }: any) => {
                                 }
                             </ul>
                         </div>
+                    </div>
+                    <div
+                        className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
+                            }`}
+                    >
+                        <ul className="flex flex-col items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 lg:hidden text-white">
+                            {
+                                menus.map((item: any, index) => {
+                                    return (
+                                        <li key={index}>
+                                            <Link className="text-white text-sm mt-4" href={item.name}>{item.name}</Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
                     </div>
                 </header>
                 {children}
